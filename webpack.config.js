@@ -33,7 +33,7 @@ module.exports = {
     contentBase: path.join(__dirname, ''),
     compress: true,
     watchContentBase: true,
-    port: 8082, // 端口
+    port: 8080, // 端口
     host: 'localhost', //IP
     disableHostCheck: true,
   },
