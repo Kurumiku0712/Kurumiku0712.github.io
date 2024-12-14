@@ -1,12 +1,15 @@
 let billboardTextures = {};
-// 第一块展板图片地址
-billboardTextures.blogTexture = '../src/jsm/blog.png';
-// 第二块展板图片地址
-billboardTextures.musicTexture =
-  '../src/jsm/music.png';
-// 第三块展板图片地址
-billboardTextures.fundTexture =
-  '../src/jsm/fund.png';
+// 展板图片地址
+billboardTextures.projectTexture1 = '../src/jsm/sections/projects/Project-1-Image.png';
+billboardTextures.projectTexture2 = '../src/jsm/sections/projects/Project-2-Image.png';
+billboardTextures.projectTexture3 = '../src/jsm/sections/projects/Project-3-Image.png';
+billboardTextures.projectTexture4 = '../src/jsm/sections/projects/Project-4-Image.png';
+billboardTextures.projectTexture5 = '../src/jsm/sections/projects/Project-5-Image.png';
+billboardTextures.projectTexture6 = '../src/jsm/sections/projects/Project-6-Image.png';
+billboardTextures.projectTexture7 = '../src/jsm/sections/projects/Project-7-Image.png';
+billboardTextures.projectTexture8 = '../src/jsm/sections/projects/Project-8-Image.png';
+billboardTextures.projectTexture9 = '../src/jsm/sections/projects/Project-9-Image.png';
+billboardTextures.projectTexture10 = '../src/jsm/sections/projects/Project-10-Image.png';
 
 let boxTexture = {};
 // 链接的图标地址

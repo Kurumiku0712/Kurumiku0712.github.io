@@ -528,85 +528,85 @@ Ammo().then((Ammo) => {
   }
 
   // 创建竖版展板
-  function createBillboardRotated(
-    x,
-    y,
-    z,
-    textureImage = billboardTextures.grassImage,
-    urlLink,
-    rotation = 0
-  ) {
-    const billboardPoleScale = { x: 1, y: 2.5, z: 1 };
-    const billboardSignScale = { x: 15, y: 20, z: 1 };
+//   function createBillboardRotated(
+//     x,
+//     y,
+//     z,
+//     textureImage = billboardTextures.grassImage,
+//     urlLink,
+//     rotation = 0
+//   ) {
+//     const billboardPoleScale = { x: 1, y: 2.5, z: 1 };
+//     const billboardSignScale = { x: 15, y: 20, z: 1 };
 
-    /* default texture loading */
-    const loader = new THREE.TextureLoader(manager);
-    const billboardPole = new THREE.Mesh(
-      new THREE.BoxBufferGeometry(
-        billboardPoleScale.x,
-        billboardPoleScale.y,
-        billboardPoleScale.z
-      ),
-      new THREE.MeshStandardMaterial({
-        map: loader.load(woodTexture),
-      })
-    );
-    const texture = loader.load(textureImage);
-    texture.magFilter = THREE.LinearFilter;
-    texture.minFilter = THREE.LinearFilter;
-    texture.encoding = THREE.sRGBEncoding;
-    var borderMaterial = new THREE.MeshBasicMaterial({
-      color: 0x000000,
-    });
-    const loadedTexture = new THREE.MeshBasicMaterial({
-      map: texture,
-    });
+//     /* default texture loading */
+//     const loader = new THREE.TextureLoader(manager);
+//     const billboardPole = new THREE.Mesh(
+//       new THREE.BoxBufferGeometry(
+//         billboardPoleScale.x,
+//         billboardPoleScale.y,
+//         billboardPoleScale.z
+//       ),
+//       new THREE.MeshStandardMaterial({
+//         map: loader.load(woodTexture),
+//       })
+//     );
+//     const texture = loader.load(textureImage);
+//     texture.magFilter = THREE.LinearFilter;
+//     texture.minFilter = THREE.LinearFilter;
+//     texture.encoding = THREE.sRGBEncoding;
+//     var borderMaterial = new THREE.MeshBasicMaterial({
+//       color: 0x000000,
+//     });
+//     const loadedTexture = new THREE.MeshBasicMaterial({
+//       map: texture,
+//     });
 
-    var materials = [
-      borderMaterial, // Left side
-      borderMaterial, // Right side
-      borderMaterial, // Top side   ---> THIS IS THE FRONT
-      borderMaterial, // Bottom side --> THIS IS THE BACK
-      loadedTexture, // Front side
-      borderMaterial, // Back side
-    ];
-    // order to add materials: x+,x-,y+,y-,z+,z-
-    const billboardSign = new THREE.Mesh(
-      new THREE.BoxGeometry(
-        billboardSignScale.x,
-        billboardSignScale.y,
-        billboardSignScale.z
-      ),
-      materials
-    );
+//     var materials = [
+//       borderMaterial, // Left side
+//       borderMaterial, // Right side
+//       borderMaterial, // Top side   ---> THIS IS THE FRONT
+//       borderMaterial, // Bottom side --> THIS IS THE BACK
+//       loadedTexture, // Front side
+//       borderMaterial, // Back side
+//     ];
+//     // order to add materials: x+,x-,y+,y-,z+,z-
+//     const billboardSign = new THREE.Mesh(
+//       new THREE.BoxGeometry(
+//         billboardSignScale.x,
+//         billboardSignScale.y,
+//         billboardSignScale.z
+//       ),
+//       materials
+//     );
 
-    billboardPole.position.x = x;
-    billboardPole.position.y = y;
-    billboardPole.position.z = z;
+//     billboardPole.position.x = x;
+//     billboardPole.position.y = y;
+//     billboardPole.position.z = z;
 
-    billboardSign.position.x = x;
-    billboardSign.position.y = y + 11.25;
-    billboardSign.position.z = z;
+//     billboardSign.position.x = x;
+//     billboardSign.position.y = y + 11.25;
+//     billboardSign.position.z = z;
 
-    /* Rotate Billboard */
-    billboardPole.rotation.y = rotation;
-    billboardSign.rotation.y = rotation;
+//     /* Rotate Billboard */
+//     billboardPole.rotation.y = rotation;
+//     billboardSign.rotation.y = rotation;
 
-    billboardPole.castShadow = true;
-    billboardPole.receiveShadow = true;
+//     billboardPole.castShadow = true;
+//     billboardPole.receiveShadow = true;
 
-    billboardSign.castShadow = true;
-    billboardSign.receiveShadow = true;
+//     billboardSign.castShadow = true;
+//     billboardSign.receiveShadow = true;
 
-    billboardSign.userData = { URL: urlLink };
+//     billboardSign.userData = { URL: urlLink };
 
-    scene.add(billboardPole);
-    scene.add(billboardSign);
-    addRigidPhysics(billboardPole, billboardPoleScale);
-    addRigidPhysics(billboardSign, billboardSignScale);
+//     scene.add(billboardPole);
+//     scene.add(billboardSign);
+//     addRigidPhysics(billboardPole, billboardPoleScale);
+//     addRigidPhysics(billboardSign, billboardSignScale);
 
-    cursorHoverObjects.push(billboardSign);
-  }
+//     cursorHoverObjects.push(billboardSign);
+//   }
 
   // 创建x轴边界(防止小球掉出去)
   function createWallX(x, y, z) {
@@ -991,7 +991,7 @@ Ammo().then((Ammo) => {
       -80,
       2.5,
       -70,
-      billboardTextures.blogTexture,
+      billboardTextures.projectTexture1,
       URL.blog,
       Math.PI * 0.22
     );
@@ -1001,19 +1001,19 @@ Ammo().then((Ammo) => {
       -45,
       2.5,
       -78,
-      billboardTextures.musicTexture,
+      billboardTextures.projectTexture2,
       URL.music,
       Math.PI * 0.17
     );
 
     // 第三块展板
-    createBillboardRotated(
+    createBillboard(
       -17,
-      1.25,
+      2.5,
       -75,
-      billboardTextures.fundTexture,
+      billboardTextures.projectTexture3,
       URL.fund,
-      Math.PI * 0.15
+      Math.PI * 0.17
     );
 
     // 第四块展板（在第一块下方）
@@ -1021,7 +1021,7 @@ Ammo().then((Ammo) => {
       -80,
       2.5,
       -60,
-      billboardTextures.blogTexture,
+      billboardTextures.projectTexture4,
       URL.blog,
       Math.PI * 0.22
     );
@@ -1031,7 +1031,7 @@ Ammo().then((Ammo) => {
       -80,
       2.5,
       -50,
-      billboardTextures.blogTexture,
+      billboardTextures.projectTexture5,
       URL.blog,
       Math.PI * 0.22
     );
@@ -1041,7 +1041,7 @@ Ammo().then((Ammo) => {
       -80,
       2.5,
       -40,
-      billboardTextures.blogTexture,
+      billboardTextures.projectTexture6,
       URL.blog,
       Math.PI * 0.22
     );
@@ -1051,7 +1051,7 @@ Ammo().then((Ammo) => {
       -80,
       2.5,
       -30,
-      billboardTextures.blogTexture,
+      billboardTextures.projectTexture7,
       URL.blog,
       Math.PI * 0.22
     );
@@ -1061,7 +1061,7 @@ Ammo().then((Ammo) => {
       -80,
       2.5,
       -20,
-      billboardTextures.blogTexture,
+      billboardTextures.projectTexture8,
       URL.blog,
       Math.PI * 0.22
     );
@@ -1071,7 +1071,7 @@ Ammo().then((Ammo) => {
       -80,
       2.5,
       -10,
-      billboardTextures.blogTexture,
+      billboardTextures.projectTexture9,
       URL.blog,
       Math.PI * 0.22
     );
@@ -1081,7 +1081,7 @@ Ammo().then((Ammo) => {
       -80,
       2.5,
       0,
-      billboardTextures.blogTexture,
+      billboardTextures.projectTexture10,
       URL.blog,
       Math.PI * 0.22
     );
