@@ -528,85 +528,85 @@ Ammo().then((Ammo) => {
   }
 
   // 创建竖版展板
-//   function createBillboardRotated(
-//     x,
-//     y,
-//     z,
-//     textureImage = billboardTextures.grassImage,
-//     urlLink,
-//     rotation = 0
-//   ) {
-//     const billboardPoleScale = { x: 1, y: 2.5, z: 1 };
-//     const billboardSignScale = { x: 15, y: 20, z: 1 };
+  //   function createBillboardRotated(
+  //     x,
+  //     y,
+  //     z,
+  //     textureImage = billboardTextures.grassImage,
+  //     urlLink,
+  //     rotation = 0
+  //   ) {
+  //     const billboardPoleScale = { x: 1, y: 2.5, z: 1 };
+  //     const billboardSignScale = { x: 15, y: 20, z: 1 };
 
-//     /* default texture loading */
-//     const loader = new THREE.TextureLoader(manager);
-//     const billboardPole = new THREE.Mesh(
-//       new THREE.BoxBufferGeometry(
-//         billboardPoleScale.x,
-//         billboardPoleScale.y,
-//         billboardPoleScale.z
-//       ),
-//       new THREE.MeshStandardMaterial({
-//         map: loader.load(woodTexture),
-//       })
-//     );
-//     const texture = loader.load(textureImage);
-//     texture.magFilter = THREE.LinearFilter;
-//     texture.minFilter = THREE.LinearFilter;
-//     texture.encoding = THREE.sRGBEncoding;
-//     var borderMaterial = new THREE.MeshBasicMaterial({
-//       color: 0x000000,
-//     });
-//     const loadedTexture = new THREE.MeshBasicMaterial({
-//       map: texture,
-//     });
+  //     /* default texture loading */
+  //     const loader = new THREE.TextureLoader(manager);
+  //     const billboardPole = new THREE.Mesh(
+  //       new THREE.BoxBufferGeometry(
+  //         billboardPoleScale.x,
+  //         billboardPoleScale.y,
+  //         billboardPoleScale.z
+  //       ),
+  //       new THREE.MeshStandardMaterial({
+  //         map: loader.load(woodTexture),
+  //       })
+  //     );
+  //     const texture = loader.load(textureImage);
+  //     texture.magFilter = THREE.LinearFilter;
+  //     texture.minFilter = THREE.LinearFilter;
+  //     texture.encoding = THREE.sRGBEncoding;
+  //     var borderMaterial = new THREE.MeshBasicMaterial({
+  //       color: 0x000000,
+  //     });
+  //     const loadedTexture = new THREE.MeshBasicMaterial({
+  //       map: texture,
+  //     });
 
-//     var materials = [
-//       borderMaterial, // Left side
-//       borderMaterial, // Right side
-//       borderMaterial, // Top side   ---> THIS IS THE FRONT
-//       borderMaterial, // Bottom side --> THIS IS THE BACK
-//       loadedTexture, // Front side
-//       borderMaterial, // Back side
-//     ];
-//     // order to add materials: x+,x-,y+,y-,z+,z-
-//     const billboardSign = new THREE.Mesh(
-//       new THREE.BoxGeometry(
-//         billboardSignScale.x,
-//         billboardSignScale.y,
-//         billboardSignScale.z
-//       ),
-//       materials
-//     );
+  //     var materials = [
+  //       borderMaterial, // Left side
+  //       borderMaterial, // Right side
+  //       borderMaterial, // Top side   ---> THIS IS THE FRONT
+  //       borderMaterial, // Bottom side --> THIS IS THE BACK
+  //       loadedTexture, // Front side
+  //       borderMaterial, // Back side
+  //     ];
+  //     // order to add materials: x+,x-,y+,y-,z+,z-
+  //     const billboardSign = new THREE.Mesh(
+  //       new THREE.BoxGeometry(
+  //         billboardSignScale.x,
+  //         billboardSignScale.y,
+  //         billboardSignScale.z
+  //       ),
+  //       materials
+  //     );
 
-//     billboardPole.position.x = x;
-//     billboardPole.position.y = y;
-//     billboardPole.position.z = z;
+  //     billboardPole.position.x = x;
+  //     billboardPole.position.y = y;
+  //     billboardPole.position.z = z;
 
-//     billboardSign.position.x = x;
-//     billboardSign.position.y = y + 11.25;
-//     billboardSign.position.z = z;
+  //     billboardSign.position.x = x;
+  //     billboardSign.position.y = y + 11.25;
+  //     billboardSign.position.z = z;
 
-//     /* Rotate Billboard */
-//     billboardPole.rotation.y = rotation;
-//     billboardSign.rotation.y = rotation;
+  //     /* Rotate Billboard */
+  //     billboardPole.rotation.y = rotation;
+  //     billboardSign.rotation.y = rotation;
 
-//     billboardPole.castShadow = true;
-//     billboardPole.receiveShadow = true;
+  //     billboardPole.castShadow = true;
+  //     billboardPole.receiveShadow = true;
 
-//     billboardSign.castShadow = true;
-//     billboardSign.receiveShadow = true;
+  //     billboardSign.castShadow = true;
+  //     billboardSign.receiveShadow = true;
 
-//     billboardSign.userData = { URL: urlLink };
+  //     billboardSign.userData = { URL: urlLink };
 
-//     scene.add(billboardPole);
-//     scene.add(billboardSign);
-//     addRigidPhysics(billboardPole, billboardPoleScale);
-//     addRigidPhysics(billboardSign, billboardSignScale);
+  //     scene.add(billboardPole);
+  //     scene.add(billboardSign);
+  //     addRigidPhysics(billboardPole, billboardPoleScale);
+  //     addRigidPhysics(billboardSign, billboardSignScale);
 
-//     cursorHoverObjects.push(billboardSign);
-//   }
+  //     cursorHoverObjects.push(billboardSign);
+  //   }
 
   // 创建x轴边界(防止小球掉出去)
   function createWallX(x, y, z) {
@@ -1088,15 +1088,15 @@ Ammo().then((Ammo) => {
 
     Words(8, 1, -20);
     // 提示文字
-    createTextOnPlane(-70, 0.01, -48, inputText.terpSolutionsText, 20, 40);
-    createTextOnPlane(-42, 0.01, -53, inputText.bagholderBetsText, 20, 40);
-    createTextOnPlane(-14, 0.01, -49, inputText.homeSweetHomeText, 20, 40);
+    // createTextOnPlane(-70, 0.01, -48, inputText.terpSolutionsText, 20, 40);
+    // createTextOnPlane(-42, 0.01, -53, inputText.bagholderBetsText, 20, 40);
+    // createTextOnPlane(-14, 0.01, -49, inputText.homeSweetHomeText, 20, 40);
 
-    // github
+    // GitHub
     createBox(
-      12,
+      0,
       2,
-      -70,
+      -10,
       4,
       4,
       1,
@@ -1106,49 +1106,49 @@ Ammo().then((Ammo) => {
       true
     );
 
-    // Bilibili
+    // LinkedIn
     createBox(
-      19,
+      10,
       2,
-      -70,
+      -10,
       4,
       4,
       1,
-      boxTexture.BiliBili,
-      URL.BiliBili,
-      0x000000,
-      false
+      boxTexture.LinkedIn,
+      URL.linkedIn,
+      0x0077b5,
+      true
     );
 
-    // 邮箱
+    // CV
+    createBox(20, 2, -10, 5, 5, 1, boxTexture.CV, URL.cv, 0x0077b5, true);
+
+    // Mail
     createBox(
-      27,
+      30,
       2,
-      -70,
+      -10,
       4,
       4,
       1,
-      boxTexture.mail,
-      "airhua602@gmail.com",
+      boxTexture.Mail,
+      "mailto: kurumiku0712@gmail.com",
       0x000000,
       false
     );
-
-    // QQ
-    createBox(35, 2, -70, 4, 4, 1, boxTexture.QQ, URL.devTo, 0x000000, false);
 
     // 浮动文字
-    floatingLabel(11.875, 4.5, -70, "Github");
-    floatingLabel(19.125, 4.5, -70, "BiliBili");
-    floatingLabel(26.875, 4.5, -70, "Email");
-    floatingLabel(35, 4.5, -70, "QQ");
+    floatingLabel(0, 4.5, -10, "Github");
+    floatingLabel(10, 4.5, -10, "LinkedIn");
+    floatingLabel(20, 4.5, -10, "CV");
+    floatingLabel(30, 4.5, -10, "Mail");
 
     // 图片贴图
-    allSkillsSection(-50, 0.025, 20, 40, 40, boxTexture.allSkills);
-    allSkillsSection(61, 0.025, 13, 30, 60, inputText.activities);
-    allSkillsSection(8.5, 0.025, 54, 7, 3.5, boxTexture.skrillex);
-    allSkillsSection(9, 0.01, 45, 15, 15, boxTexture.edmText);
-    allSkillsSection(9, 0.01, 20, 21, 10.5, inputText.staticPortfolio);
+    allSkillsSection(80, 0.025, 40, 40, 40, boxTexture.allSkills);
+    allSkillsSection(80, 0.025, 85, 40, 40, boxTexture.tools);
+    allSkillsSection(20, 0.025, 95, 40, 40, boxTexture.softSkills);
+    allSkillsSection(-80, 0.025, 90, 40, 40, boxTexture.hobbies);
+    allSkillsSection(80, 0.025, -30, 40, 80, inputText.timeline);
 
     // createLensFlare(50, -50, -800, 200, 200, boxTexture.lensFlareMain);
 
@@ -1166,19 +1166,18 @@ Ammo().then((Ammo) => {
     allSkillsSection(23, 0.01, -60, 20, 10, inputText.link);
 
     // 板块文字
-    simpleText(-50, 0.01, -5, "SKILLS", 3);
-    simpleText(-42, 0.01, -30, "WORKS", 3);
-    simpleText(61, 0.01, -15, "WISHES", 3);
+    simpleText(50, 0.01, 40, "SKILLS", 3);
+    simpleText(50, 0.01, 70, "TOOLS", 3);
+    simpleText(20, 0.01, 70, "SOFT SKILLS", 3);
+    simpleText(-50, 0.01, 90, "HOBBIES", 3);
+    simpleText(-40, 0.01, 40, "PROJECTS", 3);
+    simpleText(50, 0.01, 10, "TIMELINE", 3);
 
     wallOfBricks();
     createTriangle(63, -55);
     createTriangle(63, -51);
     createTriangle(63, -47);
     createTriangle(63, -43);
-
-    // addParticles();
-    // glowingParticles();
-    // generateGalaxy();
 
     setupEventHandlers();
     renderFrame();
