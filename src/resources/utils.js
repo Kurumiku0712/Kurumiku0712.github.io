@@ -1,8 +1,8 @@
 // 工具函数
 
-import * as THREE from 'three';
-import { camera, renderer, scene } from './world';
-import { cursorHoverObjects } from '../app';
+import * as THREE from "three";
+import { camera, renderer, scene } from "./world";
+import { cursorHoverObjects } from "../app";
 
 export const pickPosition = { x: 0, y: 0 };
 
@@ -18,15 +18,15 @@ export function rotateCamera(ballPosition) {
 
   //1
   if (
-    (ballPosition.position.x < 77 &&
-      ballPosition.position.x > 42 &&
-      ballPosition.position.z > -20 &&
-      ballPosition.position.z < 40) ||
-    (ballPosition.position.x < -2 && ballPosition.position.z < -28) ||
-    (ballPosition.position.x < -25 &&
-      ballPosition.position.x > -70 &&
-      ballPosition.position.z > -10 &&
-      ballPosition.position.z < 40)
+    (ballPosition.position.x < 127 &&
+      ballPosition.position.x > 92 &&
+      ballPosition.position.z > 30 &&
+      ballPosition.position.z < 80) ||
+    (ballPosition.position.x < 48 && ballPosition.position.z < 22) ||
+    (ballPosition.position.x < 25 &&
+      ballPosition.position.x > -30 &&
+      ballPosition.position.z > 40 &&
+      ballPosition.position.z < 90)
   ) {
     targetPos = new THREE.Vector3(
       ballPosition.position.x,
@@ -37,10 +37,10 @@ export function rotateCamera(ballPosition) {
 
   //2
   else if (
-    ballPosition.position.x > -3 &&
-    ballPosition.position.x < 22 &&
-    ballPosition.position.z > 31 &&
-    ballPosition.position.z < 58
+    ballPosition.position.x > 47 &&
+    ballPosition.position.x < 72 &&
+    ballPosition.position.z > 81 &&
+    ballPosition.position.z < 108
   ) {
     targetPos = new THREE.Vector3(
       ballPosition.position.x,
@@ -50,7 +50,7 @@ export function rotateCamera(ballPosition) {
   }
 
   //3
-  else if (ballPosition.position.z > 50) {
+  else if (ballPosition.position.z > 100) {
     targetPos = new THREE.Vector3(
       ballPosition.position.x,
       ballPosition.position.y + 10,
@@ -58,6 +58,7 @@ export function rotateCamera(ballPosition) {
     );
   }
 
+  // Revert back to original angle
   else {
     targetPos = new THREE.Vector3(
       ballPosition.position.x,
@@ -92,8 +93,7 @@ export function launchClickPosition(event) {
   if (intersectedObjects.length) {
     // pick the first object. It's the closest one
     const pickedObject = intersectedObjects[0].object;
-    if (pickedObject.userData.URL)
-      window.open(pickedObject.userData.URL);
+    if (pickedObject.userData.URL) window.open(pickedObject.userData.URL);
     else {
       return;
     }
@@ -111,8 +111,8 @@ export function launchHover(event) {
   var intersects = raycaster.intersectObjects(cursorHoverObjects);
 
   if (intersects.length > 0) {
-    document.getElementById('document-body').style.cursor = 'pointer';
+    document.getElementById("document-body").style.cursor = "pointer";
   } else {
-    document.getElementById('document-body').style.cursor = 'default';
+    document.getElementById("document-body").style.cursor = "default";
   }
 }

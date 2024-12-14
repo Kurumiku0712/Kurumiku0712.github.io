@@ -15,7 +15,7 @@ let boxTexture = {};
 // 链接的图标地址
 boxTexture.Github = '../src/jsm/contacts/github.png';
 boxTexture.LinkedIn = '../src/jsm/contacts/linkedIn.png';
-boxTexture.CV = '../src/jsm/contacts/CV.png';
+boxTexture.cv = '../src/jsm/contacts/CV.jpg';
 // boxTexture.BiliBili = '../src/jsm/contacts/bilibili.png';
 boxTexture.Mail = '../src/jsm/contacts/envelope.png';
 
@@ -24,10 +24,24 @@ boxTexture.tools = '../src/jsm/sections/Tools.png';
 boxTexture.softSkills = '../src/jsm/sections/Soft-Skills.png';
 boxTexture.hobbies = '../src/jsm/sections/Hobbies.png';
 
+boxTexture.projectText1 = '../src/jsm/sections/projects/Project-1.png';
+boxTexture.projectText2 = '../src/jsm/sections/projects/Project-2.png';
+boxTexture.projectText3 = '../src/jsm/sections/projects/Project-3.png';
+boxTexture.projectText4 = '../src/jsm/sections/projects/Project-4.png';
+boxTexture.projectText5 = '../src/jsm/sections/projects/Project-5.png';
+boxTexture.projectText6 = '../src/jsm/sections/projects/Project-6.png';
+boxTexture.projectText7 = '../src/jsm/sections/projects/Project-7.png';
+boxTexture.projectText8 = '../src/jsm/sections/projects/Project-8.png';
+boxTexture.projectText9 = '../src/jsm/sections/projects/Project-9.png';
+boxTexture.projectText10 = '../src/jsm/sections/projects/Project-10.png';
+
+
+
 // 砖块材质
 let stoneTexture = '../src/jsm/textures/IceBrick.jpg';
 // 展板木头材质
 let woodTexture = '../src/jsm/woodTexture.jpg';
+
 
 // 文字图片地址
 let inputText = {};

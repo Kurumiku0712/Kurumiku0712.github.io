@@ -151,15 +151,15 @@ Ammo().then((Ammo) => {
     physicsWorld.addRigidBody(body);
   }
 
-  // 创建操控主小球
+  // Create football
   function createBall() {
-    let pos = { x: 8.75, y: 0, z: 0 };
+    let pos = { x: 0, y: 0, z: 30 };
     let radius = 2;
     let quat = { x: 0, y: 0, z: 0, w: 1 };
     let mass = 3;
 
     var marble_loader = new THREE.TextureLoader(manager);
-    var marbleTexture = marble_loader.load("./src/jsm/earth.jpg");
+    var marbleTexture = marble_loader.load("./src/jsm/textures/Football.png");
     marbleTexture.wrapS = marbleTexture.wrapT = THREE.RepeatWrapping;
     marbleTexture.repeat.set(1, 1);
     marbleTexture.anisotropy = 1;
@@ -223,14 +223,14 @@ Ammo().then((Ammo) => {
 
   // 创建被推动的小球
   function createBeachBall() {
-    let pos = { x: 20, y: 30, z: 0 };
+    let pos = { x: 20, y: 30, z: 30 };
     let radius = 2;
     let quat = { x: 0, y: 0, z: 0, w: 1 };
     let mass = 20;
 
     //import beach ball texture
     var texture_loader = new THREE.TextureLoader(manager);
-    var beachTexture = texture_loader.load("./src/jsm/BeachBallColor.jpg");
+    var beachTexture = texture_loader.load("./src/jsm/textures/Pokeball.png");
     beachTexture.wrapS = beachTexture.wrapT = THREE.RepeatWrapping;
     beachTexture.repeat.set(1, 1);
     beachTexture.anisotropy = 1;
@@ -277,7 +277,7 @@ Ammo().then((Ammo) => {
     rigidBodies.push(ball);
   }
 
-  // 创建可点击的盒子
+  // Create contact boxes
   function createBox(
     x,
     y,
@@ -337,44 +337,44 @@ Ammo().then((Ammo) => {
     cursorHoverObjects.push(linkBox);
   }
 
-  // 创建你的信息栏 (AirHua Life is loving)
-  function Words(x, y, z) {
-    const boxScale = { x: 25, y: 3, z: 2 };
-    let quat = { x: 0, y: 0, z: 0, w: 1 };
-    let mass = 0; //mass of zero = infinite mass
+//   // 创建你的信息栏 (AirHua Life is loving)
+//   function Words(x, y, z) {
+//     const boxScale = { x: 25, y: 3, z: 2 };
+//     let quat = { x: 0, y: 0, z: 0, w: 1 };
+//     let mass = 0; //mass of zero = infinite mass
 
-    const linkBox = new THREE.Mesh(
-      new THREE.BoxBufferGeometry(boxScale.x, boxScale.y, boxScale.z),
-      new THREE.MeshPhongMaterial({
-        color: 0xff6600,
-      })
-    );
+//     const linkBox = new THREE.Mesh(
+//       new THREE.BoxBufferGeometry(boxScale.x, boxScale.y, boxScale.z),
+//       new THREE.MeshPhongMaterial({
+//         color: 0xff6600,
+//       })
+//     );
 
-    linkBox.position.set(x, y, z);
-    linkBox.castShadow = true;
-    linkBox.receiveShadow = true;
-    objectsWithLinks.push(linkBox.uuid);
+//     linkBox.position.set(x, y, z);
+//     linkBox.castShadow = true;
+//     linkBox.receiveShadow = true;
+//     objectsWithLinks.push(linkBox.uuid);
 
-    addRigidPhysics(linkBox, boxScale);
-  }
+//     addRigidPhysics(linkBox, boxScale);
+//   }
 
-  // 'AirHua'
-  function loadRyanText() {
+  //loads text for Percy Yang Mesh
+  function loadPercyYangText() {
     var text_loader = new THREE.FontLoader();
 
-    text_loader.load("./src/jsm/Poppins_Regular.json", function (font) {
+    text_loader.load("./src/jsm/Roboto_Regular.json", function (font) {
       var xMid, text;
 
-      var color = 0xfffc00;
+      var color = 0x50cff4;
 
       var textMaterials = [
         new THREE.MeshBasicMaterial({ color: color }), // front
         new THREE.MeshPhongMaterial({ color: color }), // side
       ];
 
-      var geometry = new THREE.TextGeometry("AirHua", {
+      var geometry = new THREE.TextGeometry("Percy Yang", {
         font: font,
-        size: 3,
+        size: 5,
         height: 0.5,
         curveSegments: 12,
         bevelEnabled: true,
@@ -387,14 +387,14 @@ Ammo().then((Ammo) => {
       geometry.computeBoundingBox();
       geometry.computeVertexNormals();
 
-      xMid = -0.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
+      xMid = -0.15 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
 
       geometry.translate(xMid, 0, 0);
 
       var textGeo = new THREE.BufferGeometry().fromGeometry(geometry);
 
       text = new THREE.Mesh(geometry, textMaterials);
-      text.position.z = -20;
+      text.position.z = 20;
       text.position.y = 0.1;
       text.receiveShadow = true;
       text.castShadow = true;
@@ -402,23 +402,23 @@ Ammo().then((Ammo) => {
     });
   }
 
-  //create "Life is loving"
-  function loadEngineerText() {
+  //create "WebDeveloper text"
+  function loadWebDeveloperText() {
     var text_loader = new THREE.FontLoader();
 
-    text_loader.load("./src/jsm/Poppins_Regular.json", function (font) {
+    text_loader.load("./src/jsm/Roboto_Regular.json", function (font) {
       var xMid, text;
 
-      var color = 0x00ff08;
+      var color = 0xfcd2fe;
 
       var textMaterials = [
         new THREE.MeshBasicMaterial({ color: color }), // front
         new THREE.MeshPhongMaterial({ color: color }), // side
       ];
 
-      var geometry = new THREE.TextGeometry("Life is loving", {
+      var geometry = new THREE.TextGeometry("Web Developer", {
         font: font,
-        size: 1.5,
+        size: 2.5,
         height: 0.5,
         curveSegments: 20,
         bevelEnabled: true,
@@ -436,14 +436,15 @@ Ammo().then((Ammo) => {
       var textGeo = new THREE.BufferGeometry().fromGeometry(geometry);
 
       text = new THREE.Mesh(textGeo, textMaterials);
-      text.position.z = -20;
+      text.position.z = 0;
       text.position.y = 0.1;
-      text.position.x = 14;
+      text.position.x = 40;
       text.receiveShadow = true;
       text.castShadow = true;
       scene.add(text);
     });
   }
+
 
   // 创建横板展板(作品展示)
   function createBillboard(
@@ -966,7 +967,7 @@ Ammo().then((Ammo) => {
 
   if (isTouchscreenDevice()) {
     document.getElementById("appDirections").innerHTML =
-      "使用左下角的操纵杆移动球。请以纵向方向使用您的设备！";
+      "Use the joystick in the bottom left to move the ball. Please use your device in portrait orientation!";
     createJoystick(document.getElementById("joystick-wrapper"));
     document.getElementById("joystick-wrapper").style.visibility = "visible";
     document.getElementById("joystick").style.visibility = "visible";
@@ -1086,7 +1087,7 @@ Ammo().then((Ammo) => {
       Math.PI * 0.22
     );
 
-    Words(8, 1, -20);
+    // Words(8, 1, -20);
     // 提示文字
     // createTextOnPlane(-70, 0.01, -48, inputText.terpSolutionsText, 20, 40);
     // createTextOnPlane(-42, 0.01, -53, inputText.bagholderBetsText, 20, 40);
@@ -1121,7 +1122,7 @@ Ammo().then((Ammo) => {
     );
 
     // CV
-    createBox(20, 2, -10, 5, 5, 1, boxTexture.CV, URL.cv, 0x0077b5, true);
+    createBox(20, 2, -10, 5, 5, 1, boxTexture.cv, URL.cv, 0x0077b5, true);
 
     // Mail
     createBox(
@@ -1150,10 +1151,22 @@ Ammo().then((Ammo) => {
     allSkillsSection(-80, 0.025, 90, 40, 40, boxTexture.hobbies);
     allSkillsSection(80, 0.025, -30, 40, 80, inputText.timeline);
 
+    // Project Texts
+    allSkillsSection(-10, 0.025, 0, 40, 40, boxTexture.projectText1);
+    allSkillsSection(-40, 0.025, 0, 40, 40, boxTexture.projectText2);
+    allSkillsSection(-70, 0.025, 0, 40, 40, boxTexture.projectText3);
+    allSkillsSection(-100, 0.025, 0, 40, 40, boxTexture.projectText4);
+    allSkillsSection(-100, 0.025, -30, 40, 40, boxTexture.projectText5);
+    allSkillsSection(-100, 0.025, -60, 40, 40, boxTexture.projectText6);
+    allSkillsSection(-100, 0.025, -90, 40, 40, boxTexture.projectText7);
+    allSkillsSection(-100, 0.025, -120, 40, 40, boxTexture.projectText8);
+    allSkillsSection(10, 0.025, -60, 40, 40, boxTexture.projectText9);
+    allSkillsSection(40, 0.025, -60, 40, 40, boxTexture.projectText10);
+
     // createLensFlare(50, -50, -800, 200, 200, boxTexture.lensFlareMain);
 
-    loadRyanText();
-    loadEngineerText();
+    loadPercyYangText();
+    loadWebDeveloperText();
 
     let touchText, instructionsText;
     // 根据设备显示不同提示文字
