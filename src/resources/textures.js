@@ -6,7 +6,12 @@ billboardTextures.projectTexture3 = '../src/jsm/sections/projects/Project-3-Imag
 billboardTextures.projectTexture4 = '../src/jsm/sections/projects/Project-4-Image.png';
 billboardTextures.projectTexture5 = '../src/jsm/sections/projects/Project-5-Image.png';
 billboardTextures.projectTexture6 = '../src/jsm/sections/projects/Project-6-Image.png';
+
 billboardTextures.projectTexture7 = '../src/jsm/sections/projects/Project-7-Image.png';
+billboardTextures.projectTexture7_2 = '../src/jsm/sections/projects/Project-7-Image2.png';
+billboardTextures.projectTexture7_3 = '../src/jsm/sections/projects/Project-7-Image3.png';
+billboardTextures.projectTexture7_5 = '../src/jsm/sections/projects/Project-7-Image5.png';
+
 billboardTextures.projectTexture8 = '../src/jsm/sections/projects/Project-8-Image.png';
 billboardTextures.projectTexture9 = '../src/jsm/sections/projects/Project-9-Image.png';
 billboardTextures.projectTexture10 = '../src/jsm/sections/projects/Project-10-Image.png';
