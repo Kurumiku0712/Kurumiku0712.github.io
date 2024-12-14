@@ -20,10 +20,10 @@ export function noWebGL() {
 
   var warning = WEBGL.getWebGLErrorMessage();
   var a = document.createElement("a");
-  var linkText = document.createTextNode("点击可以查看我的静态网站");
+  var linkText = document.createTextNode("Click here to visit my static site");
   a.appendChild(linkText);
   a.title = "Static Site";
-  a.href = "https://huabyte.com"; // 可以放你的博客
+  a.href = "https://kurumiku0712.github.io/Personal-Portfolio/"; 
   a.style.margin = "0px auto";
   a.style.textAlign = "center";
   document.getElementById("WEBGLcontainer").appendChild(warning);

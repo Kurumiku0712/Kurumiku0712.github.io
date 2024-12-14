@@ -1,6 +1,6 @@
-import * as THREE from 'three';
-import { WEBGL } from './WebGL';
-import * as Ammo from './libs/ammo';
+import * as THREE from "three";
+import { WEBGL } from "./WebGL";
+import * as Ammo from "./libs/ammo";
 // 导入材质
 import {
   billboardTextures,
@@ -9,7 +9,7 @@ import {
   URL,
   stoneTexture,
   woodTexture,
-} from './resources/textures';
+} from "./resources/textures";
 
 // 导入事件监听函数
 import {
@@ -18,7 +18,7 @@ import {
   isTouchscreenDevice,
   touchEvent,
   createJoystick,
-} from './resources/eventHandlers';
+} from "./resources/eventHandlers";
 
 // 导入初始化场景时的加载和处理
 import {
@@ -29,7 +29,7 @@ import {
   startButton,
   noWebGL,
   fadeOutDivs,
-} from './resources/preload';
+} from "./resources/preload";
 
 import {
   clock,
@@ -39,26 +39,15 @@ import {
   stats,
   manager,
   createWorld,
-  lensFlareObject,
-  createLensFlare,
-  particleGroup,
-  particleAttributes,
-  particleSystemObject,
-  glowingParticles,
-  addParticles,
-  moveParticles,
-  generateGalaxy,
-  galaxyMaterial,
   galaxyClock,
-  galaxyPoints,
-} from './resources/world';
+} from "./resources/world";
 
 import {
   simpleText,
   floatingLabel,
   allSkillsSection,
   createTextOnPlane,
-} from './resources/surfaces';
+} from "./resources/surfaces";
 
 import {
   pickPosition,
@@ -66,7 +55,7 @@ import {
   getCanvasRelativePosition,
   rotateCamera,
   launchHover,
-} from './resources/utils';
+} from "./resources/utils";
 
 export let cursorHoverObjects = [];
 
@@ -100,18 +89,22 @@ Ammo().then((Ammo) => {
     physicsWorld.setGravity(new Ammo.btVector3(0, -50, 0));
   }
 
+  //create flat plane
   function createGridPlane() {
+    // block properties
     let pos = { x: 0, y: -0.25, z: 0 };
     let scale = { x: 175, y: 0.5, z: 175 };
     let quat = { x: 0, y: 0, z: 0, w: 1 };
-    let mass = 0;
+    let mass = 0; //mass of zero = infinite mass
 
-    var grid = new THREE.GridHelper(175, 20, 0xffffff, 0xffffff);
-    grid.material.opacity = 0.5;
-    grid.material.transparent = true;
-    grid.position.y = 0.005;
-    scene.add(grid);
+    //create grid overlay on plane
+    // var grid = new THREE.GridHelper(175, 20, 0xffffff, 0xffffff);
+    // grid.material.opacity = 0.5;
+    // grid.material.transparent = true;
+    // grid.position.y = 0.005;
+    // scene.add(grid);
 
+    // Create Threejs Plane
     let blockPlane = new THREE.Mesh(
       new THREE.BoxBufferGeometry(),
       new THREE.MeshPhongMaterial({
@@ -125,6 +118,7 @@ Ammo().then((Ammo) => {
     blockPlane.receiveShadow = true;
     scene.add(blockPlane);
 
+    //Ammo.js Physics
     let transform = new Ammo.btTransform();
     transform.setIdentity();
     transform.setOrigin(new Ammo.btVector3(pos.x, pos.y, pos.z));
@@ -133,6 +127,7 @@ Ammo().then((Ammo) => {
     );
     let motionState = new Ammo.btDefaultMotionState(transform);
 
+    //setup collision box
     let colShape = new Ammo.btBoxShape(
       new Ammo.btVector3(scale.x * 0.5, scale.y * 0.5, scale.z * 0.5)
     );
@@ -141,6 +136,7 @@ Ammo().then((Ammo) => {
     let localInertia = new Ammo.btVector3(0, 0, 0);
     colShape.calculateLocalInertia(mass, localInertia);
 
+    //  provides information to create a rigid body
     let rigidBodyStruct = new Ammo.btRigidBodyConstructionInfo(
       mass,
       motionState,
@@ -163,7 +159,7 @@ Ammo().then((Ammo) => {
     let mass = 3;
 
     var marble_loader = new THREE.TextureLoader(manager);
-    var marbleTexture = marble_loader.load('./src/jsm/earth.jpg');
+    var marbleTexture = marble_loader.load("./src/jsm/earth.jpg");
     marbleTexture.wrapS = marbleTexture.wrapT = THREE.RepeatWrapping;
     marbleTexture.repeat.set(1, 1);
     marbleTexture.anisotropy = 1;
@@ -234,7 +230,7 @@ Ammo().then((Ammo) => {
 
     //import beach ball texture
     var texture_loader = new THREE.TextureLoader(manager);
-    var beachTexture = texture_loader.load('./src/jsm/BeachBallColor.jpg');
+    var beachTexture = texture_loader.load("./src/jsm/BeachBallColor.jpg");
     beachTexture.wrapS = beachTexture.wrapT = THREE.RepeatWrapping;
     beachTexture.repeat.set(1, 1);
     beachTexture.anisotropy = 1;
@@ -366,7 +362,7 @@ Ammo().then((Ammo) => {
   function loadRyanText() {
     var text_loader = new THREE.FontLoader();
 
-    text_loader.load('./src/jsm/Poppins_Regular.json', function (font) {
+    text_loader.load("./src/jsm/Poppins_Regular.json", function (font) {
       var xMid, text;
 
       var color = 0xfffc00;
@@ -410,7 +406,7 @@ Ammo().then((Ammo) => {
   function loadEngineerText() {
     var text_loader = new THREE.FontLoader();
 
-    text_loader.load('./src/jsm/Poppins_Regular.json', function (font) {
+    text_loader.load("./src/jsm/Poppins_Regular.json", function (font) {
       var xMid, text;
 
       var color = 0x00ff08;
@@ -420,7 +416,7 @@ Ammo().then((Ammo) => {
         new THREE.MeshPhongMaterial({ color: color }), // side
       ];
 
-      var geometry = new THREE.TextGeometry('Life is loving', {
+      var geometry = new THREE.TextGeometry("Life is loving", {
         font: font,
         size: 1.5,
         height: 0.5,
@@ -878,12 +874,12 @@ Ammo().then((Ammo) => {
 
     updatePhysics(deltaTime);
 
-    moveParticles();
+    // moveParticles();
 
     renderer.render(scene, camera);
     stats.end();
 
-    galaxyMaterial.uniforms.uTime.value = elapsedTime * 5;
+    // galaxyMaterial.uniforms.uTime.value = elapsedTime * 5;
     //galaxyPoints.position.set(-50, -50, 0);
 
     // tells browser theres animation, update before the next repaint
@@ -893,18 +889,18 @@ Ammo().then((Ammo) => {
   // 点击进入事件
   function startButtonEventListener() {
     for (let i = 0; i < fadeOutDivs.length; i++) {
-      fadeOutDivs[i].classList.add('fade-out');
+      fadeOutDivs[i].classList.add("fade-out");
     }
     setTimeout(() => {
-      document.getElementById('preload-overlay').style.display = 'none';
+      document.getElementById("preload-overlay").style.display = "none";
     }, 750);
 
-    startButton.removeEventListener('click', startButtonEventListener);
-    document.addEventListener('click', launchClickPosition);
+    startButton.removeEventListener("click", startButtonEventListener);
+    document.addEventListener("click", launchClickPosition);
     createBeachBall();
 
     setTimeout(() => {
-      document.addEventListener('mousemove', launchHover);
+      document.addEventListener("mousemove", launchHover);
     }, 1000);
   }
 
@@ -938,43 +934,42 @@ Ammo().then((Ammo) => {
 
   // 窗口调整
   function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight
-    camera.updateProjectionMatrix()
-    
-    renderer.setSize(window.innerWidth, window.innerHeight)
-    renderFrame()
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderFrame();
   }
 
   manager.onLoad = function () {
     var readyStateCheckInterval = setInterval(function () {
-      if (document.readyState === 'complete') {
+      if (document.readyState === "complete") {
         clearInterval(readyStateCheckInterval);
         for (let i = 0; i < preloadDivs.length; i++) {
-          preloadDivs[i].style.visibility = 'hidden';
-          preloadDivs[i].style.display = 'none';
+          preloadDivs[i].style.visibility = "hidden";
+          preloadDivs[i].style.display = "none";
         }
         for (let i = 0; i < postloadDivs.length; i++) {
-          postloadDivs[i].style.visibility = 'visible';
-          postloadDivs[i].style.display = 'block';
+          postloadDivs[i].style.visibility = "visible";
+          postloadDivs[i].style.display = "block";
         }
       }
     }, 1000);
   };
 
-  manager.onError = function (url) {
-  };
+  manager.onError = function (url) {};
 
-  startButton.addEventListener('click', startButtonEventListener);
+  startButton.addEventListener("click", startButtonEventListener);
 
   // 开启很卡
   // window.addEventListener('resize', onWindowResize);
 
   if (isTouchscreenDevice()) {
-    document.getElementById('appDirections').innerHTML =
-      '使用左下角的操纵杆移动球。请以纵向方向使用您的设备！';
-    createJoystick(document.getElementById('joystick-wrapper'));
-    document.getElementById('joystick-wrapper').style.visibility = 'visible';
-    document.getElementById('joystick').style.visibility = 'visible';
+    document.getElementById("appDirections").innerHTML =
+      "使用左下角的操纵杆移动球。请以纵向方向使用您的设备！";
+    createJoystick(document.getElementById("joystick-wrapper"));
+    document.getElementById("joystick-wrapper").style.visibility = "visible";
+    document.getElementById("joystick").style.visibility = "visible";
   }
 
   // 创建函数
@@ -1064,30 +1059,19 @@ Ammo().then((Ammo) => {
       4,
       1,
       boxTexture.mail,
-      'airhua602@gmail.com',
+      "airhua602@gmail.com",
       0x000000,
       false
     );
 
     // QQ
-    createBox(
-      35,
-      2,
-      -70,
-      4,
-      4,
-      1,
-      boxTexture.QQ,
-      URL.devTo,
-      0x000000,
-      false
-    );
+    createBox(35, 2, -70, 4, 4, 1, boxTexture.QQ, URL.devTo, 0x000000, false);
 
     // 浮动文字
-    floatingLabel(11.875, 4.5, -70, 'Github');
-    floatingLabel(19.125, 4.5, -70, 'BiliBili');
-    floatingLabel(26.875, 4.5, -70, 'Email');
-    floatingLabel(35, 4.5, -70, 'QQ');
+    floatingLabel(11.875, 4.5, -70, "Github");
+    floatingLabel(19.125, 4.5, -70, "BiliBili");
+    floatingLabel(26.875, 4.5, -70, "Email");
+    floatingLabel(35, 4.5, -70, "QQ");
 
     // 图片贴图
     allSkillsSection(-50, 0.025, 20, 40, 40, boxTexture.allSkills);
@@ -1096,7 +1080,7 @@ Ammo().then((Ammo) => {
     allSkillsSection(9, 0.01, 45, 15, 15, boxTexture.edmText);
     allSkillsSection(9, 0.01, 20, 21, 10.5, inputText.staticPortfolio);
 
-    createLensFlare(50, -50, -800, 200, 200, boxTexture.lensFlareMain);
+    // createLensFlare(50, -50, -800, 200, 200, boxTexture.lensFlareMain);
 
     loadRyanText();
     loadEngineerText();
@@ -1108,13 +1092,13 @@ Ammo().then((Ammo) => {
     } else {
       allSkillsSection(9, 0.01, 5, 20, 10, inputText.pcControl);
     }
-    
+
     allSkillsSection(23, 0.01, -60, 20, 10, inputText.link);
 
     // 板块文字
-    simpleText(-50, 0.01, -5, 'SKILLS', 3);
-    simpleText(-42, 0.01, -30, 'WORKS', 3);
-    simpleText(61, 0.01, -15, 'WISHES', 3);
+    simpleText(-50, 0.01, -5, "SKILLS", 3);
+    simpleText(-42, 0.01, -30, "WORKS", 3);
+    simpleText(61, 0.01, -15, "WISHES", 3);
 
     wallOfBricks();
     createTriangle(63, -55);
@@ -1122,9 +1106,9 @@ Ammo().then((Ammo) => {
     createTriangle(63, -47);
     createTriangle(63, -43);
 
-    addParticles();
-    glowingParticles();
-    generateGalaxy();
+    // addParticles();
+    // glowingParticles();
+    // generateGalaxy();
 
     setupEventHandlers();
     renderFrame();
