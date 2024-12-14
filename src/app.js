@@ -93,7 +93,7 @@ Ammo().then((Ammo) => {
   function createGridPlane() {
     // block properties
     let pos = { x: 0, y: -0.25, z: 0 };
-    let scale = { x: 175, y: 0.5, z: 175 };
+    let scale = { x: 250, y: 0.5, z: 250 };
     let quat = { x: 0, y: 0, z: 0, w: 1 };
     let mass = 0; //mass of zero = infinite mass
 
@@ -610,7 +610,7 @@ Ammo().then((Ammo) => {
 
   // 创建x轴边界(防止小球掉出去)
   function createWallX(x, y, z) {
-    const wallScale = { x: 0.125, y: 4, z: 175 };
+    const wallScale = { x: 0.125, y: 4, z: 250 };
 
     const wall = new THREE.Mesh(
       new THREE.BoxBufferGeometry(wallScale.x, wallScale.y, wallScale.z),
@@ -634,7 +634,7 @@ Ammo().then((Ammo) => {
 
   // 创建x轴边界
   function createWallZ(x, y, z) {
-    const wallScale = { x: 175, y: 4, z: 0.125 };
+    const wallScale = { x: 250, y: 4, z: 0.125 };
 
     const wall = new THREE.Mesh(
       new THREE.BoxBufferGeometry(wallScale.x, wallScale.y, wallScale.z),
@@ -981,10 +981,10 @@ Ammo().then((Ammo) => {
     createBall();
 
     // 这里调整边界
-    createWallX(87.5, 1.75, 0);
-    createWallX(-87.5, 1.75, 0);
-    createWallZ(0, 1.75, 87.5);
-    createWallZ(0, 1.75, -87.5);
+    createWallX(125, 1.75, 0);
+    createWallX(-125, 1.75, 0);
+    createWallZ(0, 1.75, 125);
+    createWallZ(0, 1.75, -125);
 
     // 第一块展板
     createBillboard(
@@ -1014,6 +1014,76 @@ Ammo().then((Ammo) => {
       billboardTextures.fundTexture,
       URL.fund,
       Math.PI * 0.15
+    );
+
+    // 第四块展板（在第一块下方）
+    createBillboard(
+      -80,
+      2.5,
+      -60,
+      billboardTextures.blogTexture,
+      URL.blog,
+      Math.PI * 0.22
+    );
+
+    // 第五块展板（在第四块下方）
+    createBillboard(
+      -80,
+      2.5,
+      -50,
+      billboardTextures.blogTexture,
+      URL.blog,
+      Math.PI * 0.22
+    );
+
+    // 第六块展板
+    createBillboard(
+      -80,
+      2.5,
+      -40,
+      billboardTextures.blogTexture,
+      URL.blog,
+      Math.PI * 0.22
+    );
+
+    // 第七块展板
+    createBillboard(
+      -80,
+      2.5,
+      -30,
+      billboardTextures.blogTexture,
+      URL.blog,
+      Math.PI * 0.22
+    );
+
+    // 第八块展板
+    createBillboard(
+      -80,
+      2.5,
+      -20,
+      billboardTextures.blogTexture,
+      URL.blog,
+      Math.PI * 0.22
+    );
+
+    // 第九块展板
+    createBillboard(
+      -80,
+      2.5,
+      -10,
+      billboardTextures.blogTexture,
+      URL.blog,
+      Math.PI * 0.22
+    );
+
+    // 第十块展板
+    createBillboard(
+      -80,
+      2.5,
+      0,
+      billboardTextures.blogTexture,
+      URL.blog,
+      Math.PI * 0.22
     );
 
     Words(8, 1, -20);
