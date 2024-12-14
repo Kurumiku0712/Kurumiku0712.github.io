@@ -67,9 +67,9 @@ export function createWorld() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
 
-  // 左上角状态监听器
-  stats = new Stats();
-  document.body.appendChild(stats.dom);
+//   // 左上角状态监听器
+//   stats = new Stats();
+//   document.body.appendChild(stats.dom);
 
   renderer.gammaInput = true;
   renderer.gammaOutput = true;

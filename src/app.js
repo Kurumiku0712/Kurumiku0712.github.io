@@ -153,7 +153,7 @@ Ammo().then((Ammo) => {
 
   // Create football
   function createBall() {
-    let pos = { x: 0, y: 0, z: 50 };
+    let pos = { x: 0, y: 0, z: 30 };
     let radius = 2;
     let quat = { x: 0, y: 0, z: 0, w: 1 };
     let mass = 3;
@@ -665,16 +665,16 @@ Ammo().then((Ammo) => {
     var brickLength = 3;
     var brickDepth = 3;
     var brickHeight = 1.5;
-    var numberOfBricksAcross = 6;
-    var numberOfRowsHigh = 6;
+    var numberOfBricksAcross = 8;
+    var numberOfRowsHigh = 8;
 
-    pos.set(70, brickHeight * 0.5, -60);
+    pos.set(69, brickHeight * 0.5, -65);
     quat.set(0, 0, 0, 1);
 
     for (var j = 0; j < numberOfRowsHigh; j++) {
       var oddRow = j % 2 == 1;
 
-      pos.x = 60;
+      pos.x = 69;
 
       if (oddRow) {
         pos.x += 0.25 * brickLength;
@@ -854,7 +854,7 @@ Ammo().then((Ammo) => {
 
   // 渲染函数
   function renderFrame() {
-    stats.begin();
+    // stats.begin();
 
     const elapsedTime = galaxyClock.getElapsedTime() + 150;
 
@@ -877,7 +877,7 @@ Ammo().then((Ammo) => {
     // moveParticles();
 
     renderer.render(scene, camera);
-    stats.end();
+    // stats.end();
 
     // galaxyMaterial.uniforms.uTime.value = elapsedTime * 5;
     //galaxyPoints.position.set(-50, -50, 0);
@@ -992,7 +992,7 @@ Ammo().then((Ammo) => {
       2.5,
       -105,
       billboardTextures.projectTexture1,
-      URL.blog,
+      URL.project1,
       0
     );
 
@@ -1002,7 +1002,7 @@ Ammo().then((Ammo) => {
       2.5,
       -105,
       billboardTextures.projectTexture2,
-      URL.music,
+      URL.project2,
       0
     );
 
@@ -1012,7 +1012,7 @@ Ammo().then((Ammo) => {
       2.5,
       -105,
       billboardTextures.projectTexture3,
-      URL.fund,
+      URL.project3,
       0
     );
 
@@ -1022,7 +1022,7 @@ Ammo().then((Ammo) => {
       2.5,
       -105,
       billboardTextures.projectTexture4,
-      URL.blog,
+      URL.project4,
       0
     );
 
@@ -1032,7 +1032,7 @@ Ammo().then((Ammo) => {
       2.5,
       -105,
       billboardTextures.projectTexture5,
-      URL.blog,
+      URL.project5,
       0
     );
 
@@ -1042,7 +1042,7 @@ Ammo().then((Ammo) => {
       2.5,
       -60,
       billboardTextures.projectTexture6,
-      URL.blog,
+      URL.project6,
       Math.PI * 0.22
     );
 
@@ -1052,7 +1052,7 @@ Ammo().then((Ammo) => {
       2.5,
       -65,
       billboardTextures.projectTexture7,
-      URL.blog,
+      URL.project7,
       0
     );
 
@@ -1062,7 +1062,7 @@ Ammo().then((Ammo) => {
       2.5,
       -60,
       billboardTextures.projectTexture7_5,
-      URL.blog,
+      URL.project7,
       Math.PI * 0.12
     );
 
@@ -1072,7 +1072,7 @@ Ammo().then((Ammo) => {
       2.5,
       -60,
       billboardTextures.projectTexture7_2,
-      URL.blog,
+      URL.project7,
       -Math.PI * 0.12
     );
 
@@ -1082,37 +1082,37 @@ Ammo().then((Ammo) => {
       2.5,
       -40,
       billboardTextures.projectTexture7_3,
-      URL.blog,
+      URL.project7,
       -Math.PI * 0.4
     );
 
     // 第八块展板
     createBillboard(
-      -80,
+      -90,
       2.5,
       -20,
       billboardTextures.projectTexture8,
-      URL.blog,
+      URL.project8,
       Math.PI * 0.22
     );
 
     // 第九块展板
     createBillboard(
-      -80,
+      -90,
       2.5,
-      -10,
+      20,
       billboardTextures.projectTexture9,
-      URL.blog,
+      URL.project9,
       Math.PI * 0.22
     );
 
     // 第十块展板
     createBillboard(
-      -80,
+      -90,
       2.5,
-      0,
+      65,
       billboardTextures.projectTexture10,
-      URL.blog,
+      URL.project10,
       Math.PI * 0.22
     );
 
@@ -1202,12 +1202,12 @@ Ammo().then((Ammo) => {
     let touchText, instructionsText;
     // 根据设备显示不同提示文字
     if (isTouchscreenDevice()) {
-      allSkillsSection(9, 0.01, 5, 20, 10, inputText.mobileControl);
+      allSkillsSection(9, 0.01, 40, 20, 10, inputText.mobileControl);
     } else {
-      allSkillsSection(9, 0.01, 5, 20, 10, inputText.pcControl);
+      allSkillsSection(9, 0.01, 40, 20, 10, inputText.pcControl);
     }
 
-    allSkillsSection(23, 0.01, -60, 20, 10, inputText.link);
+    allSkillsSection(10, 0.01, -5, 20, 10, inputText.link);
 
     // 板块文字
     simpleText(108, 0.01, 50, "SKILLS", 3);
