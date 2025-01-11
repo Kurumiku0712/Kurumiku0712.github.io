@@ -1,6 +1,6 @@
 # 3D Portfolio
 
-Website here: [https://kurumiku0712.github.io/] (https://kurumiku0712.github.io/)
+Website here: https://kurumiku0712.github.io/
 
 ## Project Description
 
