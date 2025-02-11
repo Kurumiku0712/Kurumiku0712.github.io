@@ -25,6 +25,8 @@ This project is a 3D portfolio website that showcases my skills and projects in 
 ## SetUp
 
 ```
+nvm use 16
+
 npm install
 
 npm run dev

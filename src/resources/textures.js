@@ -66,18 +66,18 @@ let URL = {};
 URL.gitHub = 'https://github.com/Kurumiku0712';
 URL.linkedIn = 'https://www.linkedin.com/in/guangyu-yang-809978303/';
 URL.email = 'kurumiku0712@gmail.com';
-URL.cv = 'https://drive.google.com/file/d/1QVHcMr-_WuLlqAZ-xB_9QLTQY7LirJe5/view?usp=sharing';
+URL.cv = 'https://drive.google.com/file/d/1l-YhNukNExRTgickHem7QPpy3O6IUPva/view?usp=sharing';
 
-URL.project1 = 'https://drive.google.com/file/d/1qyyx0h7O3HY0jViI6fqCJyMG0mwIkFAD/view?usp=sharing';
+URL.project1 = 'https://drive.google.com/file/d/1Uhy2I-sIskBHa3qDe26C30ZlQiOcKY_6/view?usp=sharing';
 URL.project2 = 'https://github.com/Kurumiku0712/Anesidora-MiniGame';
 URL.project3 = 'https://github.com/Kurumiku0712/VR-Clubs';
-URL.project4 = 'https://drive.google.com/file/d/1deoiEGXez6V0Su-9Li_TrzlhepNZWpi7/view?usp=drive_link';
-URL.project5 = 'https://drive.google.com/file/d/1vuNd0wifdIGjTpE5EaKr6DkwwcO65JZ1/view?usp=sharing';
+URL.project4 = 'https://drive.google.com/file/d/10pYPKoJrJ1qwjKvDGEcGSONSvwGv7I3C/view?usp=sharing';
+URL.project5 = 'https://drive.google.com/file/d/1rBK4CKzfNI2H_qnR8IzgYoFHqXjbGw9i/view?usp=sharing';
 URL.project6 = 'https://kurumiku.pythonanywhere.com/';
 URL.project7 = 'https://youtu.be/KwBUXIYMDpA';
 URL.project8 = 'https://percyyang.shinyapps.io/Group17/';
-URL.project9 = 'https://drive.google.com/file/d/1QLzV2oLgQJTz1b4LrMmFgeAbTQtbIwsI/view?usp=drive_link';
-URL.project10 = 'https://drive.google.com/file/d/1Y0Fs6CGUpVi45Oh0fUeTv20ciW3uPLem/view?usp=drive_link';
+URL.project9 = 'https://drive.google.com/file/d/1_DyEexNgVyZe2nzpnP4X_9yhfGNyViUE/view?usp=sharing';
+URL.project10 = 'https://drive.google.com/file/d/121hOKd9CQ8Bf97UHRI2_hiYnE2hVHMNu/view?usp=sharing';
 
 
 // URL.blog =
