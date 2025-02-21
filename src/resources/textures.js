@@ -16,6 +16,10 @@ billboardTextures.projectTexture8 = '../src/jsm/sections/projects/Project-8-Imag
 billboardTextures.projectTexture9 = '../src/jsm/sections/projects/Project-9-Image.png';
 billboardTextures.projectTexture10 = '../src/jsm/sections/projects/Project-10-Image.png';
 
+billboardTextures.projectTexture11 = '../src/jsm/sections/projects/Project-11-Image.png';
+billboardTextures.projectTexture12 = '../src/jsm/sections/projects/Project-12-Image.png';
+
+
 let boxTexture = {};
 // 链接的图标地址
 boxTexture.Github = '../src/jsm/contacts/github.png';
@@ -66,7 +70,7 @@ let URL = {};
 URL.gitHub = 'https://github.com/Kurumiku0712';
 URL.linkedIn = 'https://www.linkedin.com/in/guangyu-yang-809978303/';
 URL.email = 'kurumiku0712@gmail.com';
-URL.cv = 'https://drive.google.com/file/d/1l-YhNukNExRTgickHem7QPpy3O6IUPva/view?usp=sharing';
+URL.cv = 'https://drive.google.com/file/d/1QSriWcwnlcuoYjb0z5fe04aVxHSQZ39F/view?usp=sharing';
 
 URL.project1 = 'https://drive.google.com/file/d/1Uhy2I-sIskBHa3qDe26C30ZlQiOcKY_6/view?usp=sharing';
 URL.project2 = 'https://github.com/Kurumiku0712/Anesidora-MiniGame';
@@ -78,6 +82,8 @@ URL.project7 = 'https://youtu.be/KwBUXIYMDpA';
 URL.project8 = 'https://percyyang.shinyapps.io/Group17/';
 URL.project9 = 'https://drive.google.com/file/d/1_DyEexNgVyZe2nzpnP4X_9yhfGNyViUE/view?usp=sharing';
 URL.project10 = 'https://drive.google.com/file/d/121hOKd9CQ8Bf97UHRI2_hiYnE2hVHMNu/view?usp=sharing';
+URL.project11 = 'https://react-dashboard-ztid.onrender.com/';
+URL.project12 = 'https://main.d1zvv01v2vt4p6.amplifyapp.com/';
 
 
 // URL.blog =

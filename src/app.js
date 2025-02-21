@@ -1116,6 +1116,28 @@ Ammo().then((Ammo) => {
       Math.PI * 0.22
     );
 
+    // 第十一块展板
+    createBillboard(
+      -40,
+      2.5,
+      -25,
+      billboardTextures.projectTexture11,
+      URL.project11,
+      Math.PI * 0.22
+    );
+
+    // 第十二块展板
+    createBillboard(
+      -25,
+      2.5,
+      -10,
+      billboardTextures.projectTexture12,
+      URL.project12,
+      0
+    );  
+
+    
+
     floydWords(12, 1, 20);
     // 提示文字
     // createTextOnPlane(-70, 0.01, -48, inputText.terpSolutionsText, 20, 40);
@@ -1214,7 +1236,9 @@ Ammo().then((Ammo) => {
     simpleText(108, 0.01, 90, "TOOLS", 3);
     simpleText(37, 0.01, 75, "SOFT SKILLS", 3);
     simpleText(-10, 0.01, 75, "HOBBIES", 3);
-    simpleText(-30, 0.01, 0, "PROJECTS", 3);
+    simpleText(-35, 0.01, 55, "PROJECTS", 3);
+    simpleText(-28, 0.01, 0, "Dashboard Projects", 3);
+    simpleText(-26, 0.01, 5, "(click on billboard to visit the site)", 3);
     simpleText(75, 0.01, -115, "PROJECTS", 3);
     simpleText(50, 0.01, 20, "TIMELINE", 3);
 
